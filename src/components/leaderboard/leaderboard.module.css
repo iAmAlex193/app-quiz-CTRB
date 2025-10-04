@@ -1,0 +1,46 @@
+table {
+  border-collapse: collapse;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+table thead,
+table tbody { 
+  display: flex; 
+  flex-direction: column;
+}
+
+thead tr,
+tbody tr {
+  display: flex;
+  flex: 1;
+}
+
+table th,
+table td { flex: 1; }
+
+table th,
+table td { 
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 8px;
+}
+
+table th:last-child,
+table td:last-child { justify-content: right; }
+
+table th { 
+  font-size: 18px; 
+  font-weight: 600; 
+}
+
+tbody tr { padding: 6px 0; }
+tbody tr td { font-size: 16px; }
+
+tbody .icon { font-size: 22px; }
+
+tbody tr:nth-child(1) { color: #A39607; }
+tbody tr:nth-child(2) { color: #767676; }
+tbody tr:nth-child(3) { color: #9F6022; }
