@@ -1,5 +1,6 @@
 export default function Button({ 
   children, 
+  type = 'button',
   variant = 'solid', 
   color = 'primary', 
   large, 
@@ -26,7 +27,12 @@ export default function Button({
   }
 
   return (
-    <button type='button' className={loadClassName()} style={sx} onClick={onClick}>
+    <button 
+      type={type} 
+      className={loadClassName()} 
+      style={sx} 
+      onClick={onClick}
+    >
       {children}
     </button>
   );

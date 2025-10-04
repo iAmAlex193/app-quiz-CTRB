@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router';
 import useScore from '../assets/hooks/useScore';
 import Button from '../components/button';
@@ -10,7 +10,9 @@ export default function Result() {
   const navigate = useNavigate();
 
   // Actions
-  const handleRegisterScore = (): void => {
+  const handleRegisterScore = (e: React.FormEvent): void => {
+    e.preventDefault();
+
     if (!currentScore) return;
 
     handleAddScoreToListScores(currentScore.getScorePts(), nickname);
@@ -39,7 +41,10 @@ export default function Result() {
         {hitsQuestion}/{allQuestion} 
       </p>
 
-      <form className='flex flex-col sm:flex-row items-end gap-2 mx-auto p-2 w-full max-w-[430px]'>
+      <form 
+        onSubmit={handleRegisterScore}
+        className='flex flex-col sm:flex-row items-end gap-2 mx-auto p-2 w-full max-w-[430px]'
+      >
         <input 
           type='text' 
           placeholder='Digite seu nickname...' 
@@ -49,8 +54,8 @@ export default function Result() {
         />
 
         <Button 
+          type='submit'
           large 
-          onClick={handleRegisterScore}
         >
           Registrar
         </Button> 
